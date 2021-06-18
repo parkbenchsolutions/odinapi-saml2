@@ -1,33 +1,33 @@
 {
-    "name": "scott/odinapi-saml2",
-    "description": "Odinapi Saml2 Client",
-    "version": "0.1",
-    "license": "MIT",
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^7.2.5|^8.0",
-        "ext-openssl": "*",
-        "illuminate/support": ">=5.0.0"
-    },
-    "require-dev": {
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^9.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "Scott\\OdinapiSaml2\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Scott\\OdinapiSaml2\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Scott\\OdinapiSaml2\\Providers\\OdinapiSaml2ServiceProvider"
-            ]
-        }
+  "name": "parkbenchsolutions/odinapi-saml2",
+  "description": "Odinapi Saml2 Client",
+  "version": "0.1",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.2.5|^8.0",
+    "ext-openssl": "*",
+    "illuminate/support": ">=5.0.0"
+  },
+  "require-dev": {
+    "mockery/mockery": "0.9.*",
+    "phpunit/phpunit": "^9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Parkbenchsolutions\\OdinapiSaml2\\": "src"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Parkbenchsolutions\\OdinapiSaml2\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Parkbenchsolutions\\OdinapiSaml2\\Providers\\OdinapiSaml2ServiceProvider"
+      ]
+    }
+  }
 }

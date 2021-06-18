@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Events;
+namespace Parkbenchsolutions\OdinapiSaml2\Events;
 
 class Saml2Event {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Events;
+namespace Parkbenchsolutions\OdinapiSaml2\Events;
 
 use Classes\Saml2User;
 use Classes\Saml2Auth;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Classes;
+namespace Parkbenchsolutions\OdinapiSaml2\Classes;
 
 use OneLogin\lib\Saml2\Auth as OneLogin_Saml2_Auth;
 use OneLogin\lib\Saml2\Error as OneLogin_Saml2_Error;

@@ -5,7 +5,7 @@ use Log;
 Route::middleware(config('saml2_settings.routesMiddleware'))
 ->prefix(config('saml2_settings.routesPrefix').'/')->group(function() {
     Route::prefix('{idpName}')->group(function() {
-	$saml2_controller = config('saml2_settings.saml2_controller', 'Scott\OdinapiSaml2\Http\Controllers\Saml2Controller');
+	$saml2_controller = config('saml2_settings.saml2_controller', 'Parkbenchsolutions\OdinapiSaml2\Http\Controllers\Saml2Controller');
 Log::info('in routes 1');
         Route::get('/logout', array(
             'as' => 'saml2_logout',
@@ -16,7 +16,7 @@ Log::info('in routes 1');
             'uses' => $saml2_controller.'@logout',
             // 'uses' => 'Saml2Controller@logout',
         ));
-        // Route::get('logout2', 'Scott\OdinapiSaml2\Http\Controllers\Saml2Controller@logout')->name('logout2');
+        // Route::get('logout2', 'Parkbenchsolutions\OdinapiSaml2\Http\Controllers\Saml2Controller@logout')->name('logout2');
         // Route::get('logout2', [RegisterController::class, 'create'])->name('register');
 
         Route::get('/login', array(

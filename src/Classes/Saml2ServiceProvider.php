@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Classes;
+namespace Parkbenchsolutions\OdinapiSaml2\Classes;
 
 use OneLogin\lib\Saml2\Utils as OneLogin_Saml2_Utils;
 use Illuminate\Support\ServiceProvider;

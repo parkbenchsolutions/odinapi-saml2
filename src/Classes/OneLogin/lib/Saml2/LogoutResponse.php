@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Classes\OneLogin\lib\Saml2;
+namespace Parkbenchsolutions\OdinapiSaml2\Classes\OneLogin\lib\Saml2;
 
 /**
  * SAML 2 Logout Response

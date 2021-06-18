@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Providers;
+namespace Parkbenchsolutions\OdinapiSaml2\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

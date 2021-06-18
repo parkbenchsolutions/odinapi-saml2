@@ -1,6 +1,6 @@
 <?php
 
-namespace Scott\OdinapiSaml2\Http\Controllers;
+namespace Parkbenchsolutions\OdinapiSaml2\Http\Controllers;
 
 use Events\Saml2LoginEvent;
 use Classes\Saml2Auth;
