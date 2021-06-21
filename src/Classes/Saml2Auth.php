@@ -5,7 +5,7 @@ namespace Parkbenchsolutions\OdinapiSaml2\Classes;
 use OneLogin\lib\Saml2\Auth as OneLogin_Saml2_Auth;
 use OneLogin\lib\Saml2\Error as OneLogin_Saml2_Error;
 use OneLogin\lib\Saml2\Saml2LogoutEvent;
-use Log;
+// use Log;
 use Psr\Log\InvalidArgumentException;
 use URL;
 
