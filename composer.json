@@ -3,12 +3,12 @@
   "description": "Odinapi Saml2 Client",
   "version": "0.1",
   "license": "MIT",
-  "minimum-stability": "0.0",
+  "minimum-stability": "dev",
   "require": {
     "php": "^7.2.5|^8.0",
     "ext-openssl": "*",
     "illuminate/support": ">=5.0.0",
-    "parkbenchsolutions/odinapi-onlogin": ">=0.0"
+    "parkbenchsolutions/odinapi-onlogin": "dev"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",
