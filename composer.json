@@ -3,12 +3,12 @@
   "description": "Odinapi Saml2 Client",
   "version": "0.1",
   "license": "MIT",
-  "minimum-stability": "dev1",
+  "minimum-stability": "dev",
   "require": {
     "php": "^7.2.5|^8.0",
     "ext-openssl": "*",
     "illuminate/support": ">=5.0.0",
-    "parkbenchsolutions/odinapi-onlogin": "~0.1"
+    "parkbenchsolutions/odinapi-onelogin": "~0.1"
   },
   "require-dev": {
     "mockery/mockery": "0.9.*",
@@ -30,5 +30,11 @@
         "Parkbenchsolutions\\OdinapiSaml2\\Providers\\OdinapiSaml2ServiceProvider"
       ]
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/parkbenchsolutions/odinapi-onelogin"
+    }
+  ]
 }
