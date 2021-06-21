@@ -1,7 +1,7 @@
 {
   "name": "parkbenchsolutions/odinapi-saml2",
   "description": "Odinapi Saml2 Client",
-  "version": "dev",
+  "version": "0.1",
   "license": "MIT",
   "minimum-stability": "dev",
   "require": {
