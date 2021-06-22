@@ -30,11 +30,11 @@ For older versions of Laravel (<5.5), you have to add the service provider:
 ```php
 'providers' => [
         ...
-    	Aacotroneo\Saml2\Saml2ServiceProvider::class,
+    	Parkbenchsolutions\OdinapiSaml2\Saml2ServiceProvider::class,
 ]
 ```
 
-Then publish the config files with `php artisan vendor:publish --provider="Aacotroneo\Saml2\Saml2ServiceProvider"`. This will add the files `app/config/saml2_settings.php` & `app/config/saml2/mytestidp1_idp_settings.php`, which you will need to customize.
+Then publish the config files with `php artisan vendor:publish --provider="Parkbenchsolutions\OdinapiSaml2\Saml2ServiceProvider"`. This will add the files `app/config/saml2_settings.php` & `app/config/saml2/mytestidp1_idp_settings.php`, which you will need to customize.
 
 The `mytestidp1_idp_settings.php` config is handled almost directly by  [OneLogin](https://github.com/onelogin/php-saml) so you should refer to that for full details, but we'll cover here what's really necessary. There are some other config about routes you may want to check, they are pretty strightforward.
 
@@ -158,7 +158,7 @@ For example, it can be:
 ```
 **App/Http/Controllers/MyNamespace/MySaml2Controller.php**
 ```php
-use Aacotroneo\Saml2\Http\Controllers\Saml2Controller;
+use Parkbenchsolutions\OdinapiSaml2\Http\Controllers\Saml2Controller;
 
 class MySaml2Controller extends Saml2Controller
 {
@@ -176,7 +176,7 @@ For example, it can be:
 
 **App/Providers/MyEventServiceProvider.php**
 ```php
-Event::listen('Aacotroneo\Saml2\Events\Saml2LoginEvent', function (Saml2LoginEvent $event) {
+Event::listen('Parkbenchsolutions\OdinapiSaml2\Events\Saml2LoginEvent', function (Saml2LoginEvent $event) {
     $messageId = $event->getSaml2Auth()->getLastMessageId();
     // Add your own code preventing reuse of a $messageId to stop replay attacks
 
@@ -237,7 +237,7 @@ For example, it can be:
 
 **App/Providers/MyEventServiceProvider.php**
 ```php
-Event::listen('Aacotroneo\Saml2\Events\Saml2LogoutEvent', function ($event) {
+Event::listen('Parkbenchsolutions\OdinapiSaml2\Events\Saml2LogoutEvent', function ($event) {
     Auth::logout();
     Session::save();
 });
