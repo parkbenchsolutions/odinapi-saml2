@@ -30,11 +30,5 @@
         "Parkbenchsolutions\\OdinapiSaml2\\Providers\\OdinapiSaml2ServiceProvider"
       ]
     }
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/parkbenchsolutions/odinapi-onelogin"
-    }
-  ]
+  }
 }
