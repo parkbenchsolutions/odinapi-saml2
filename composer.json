@@ -9,7 +9,7 @@
     ],
     "homepage": "https://github.com/parkbenchsolutions/odinapi-saml2",
     "license": "copywrite Park Bench Solutions Inc",
-    "version": "0.1.0",
+    "version": "0.1",
     "authors": [
         {
             "name": "Park Bench Solutions",
@@ -20,7 +20,7 @@
         "php": ">=5.5.0",
         "ext-openssl": "*",
         "illuminate/support": ">=5.0.0",
-        "parkbenchsolutions/odinapi-onelogin": "^0.1.0"
+        "parkbenchsolutions/odinapi-onelogin": "^0.1"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
