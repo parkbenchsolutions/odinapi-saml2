@@ -1,11 +1,12 @@
 <?php
 
-namespace Parkbenchsolutions\OdinapiSaml2\Classes;
+namespace Parkbenchsolutions\OdinapiSaml2;
 
-use OneLogin\lib\Saml2\Auth as OneLogin_Saml2_Auth;
-use OneLogin\lib\Saml2\Error as OneLogin_Saml2_Error;
-use OneLogin\lib\Saml2\Saml2LogoutEvent;
-// use Log;
+use OneLogin\Saml2\Auth as OneLogin_Saml2_Auth;
+use OneLogin\Saml2\Error as OneLogin_Saml2_Error;
+use Aacotroneo\Saml2\Events\Saml2LogoutEvent;
+
+use Log;
 use Psr\Log\InvalidArgumentException;
 use URL;
 

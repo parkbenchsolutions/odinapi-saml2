@@ -1,12 +1,11 @@
 <?php
 
-namespace Parkbenchsolutions\OdinapiSaml2\Http\Controllers;
+namespace Aacotroneo\Saml2\Http\Controllers;
 
-use Events\Saml2LoginEvent;
-use Classes\Saml2Auth;
+use Aacotroneo\Saml2\Events\Saml2LoginEvent;
+use Aacotroneo\Saml2\Saml2Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-Use Log;
 
 class Saml2Controller extends Controller
 {
@@ -18,7 +17,6 @@ class Saml2Controller extends Controller
      */
     public function metadata(Saml2Auth $saml2Auth)
     {
-        Log::info('in Saml2Controller metadata');
         $metadata = $saml2Auth->getMetadata();
 
         return response($metadata, 200, ['Content-Type' => 'text/xml']);
@@ -34,7 +32,6 @@ class Saml2Controller extends Controller
      */
     public function acs(Saml2Auth $saml2Auth, $idpName)
     {
-        Log::info('in Saml2Controller acs');
         $errors = $saml2Auth->acs();
 
         if (!empty($errors)) {
@@ -70,7 +67,6 @@ class Saml2Controller extends Controller
      */
     public function sls(Saml2Auth $saml2Auth, $idpName)
     {
-        Log::info('in Saml2Controller sls');
         $errors = $saml2Auth->sls($idpName, config('saml2_settings.retrieveParametersFromServer'));
         if (!empty($errors)) {
             logger()->error('Saml2 error', $errors);
@@ -89,8 +85,6 @@ class Saml2Controller extends Controller
      */
     public function logout(Saml2Auth $saml2Auth, Request $request)
     {
-        dd('in Saml2Controller logout');
-        Log::info('in Saml2Controller logout');
         $returnTo = $request->query('returnTo');
         $sessionIndex = $request->query('sessionIndex');
         $nameId = $request->query('nameId');
@@ -105,7 +99,6 @@ class Saml2Controller extends Controller
      */
     public function login(Saml2Auth $saml2Auth)
     {
-        Log::info('in Saml2Controller login');
         $saml2Auth->login(config('saml2_settings.loginRoute'));
     }
 }

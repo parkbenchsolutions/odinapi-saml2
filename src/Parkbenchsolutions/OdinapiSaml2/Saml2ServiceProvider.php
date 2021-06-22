@@ -1,11 +1,13 @@
 <?php
 
-namespace Parkbenchsolutions\OdinapiSaml2\Providers;
+namespace Parkbenchsolutions\OdinapiSaml2;
 
+use OneLogin\Saml2\Utils as OneLogin_Saml2_Utils;
 use Illuminate\Support\ServiceProvider;
 
-class OdinapiSaml2ServiceProvider extends ServiceProvider
+class Saml2ServiceProvider extends ServiceProvider
 {
+
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -13,16 +15,6 @@ class OdinapiSaml2ServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
-    // /**
-    //  * Bootstrap the application events.
-    //  *
-    //  * @return void
-    //  */
-    // public function boot()
-    // {
-    //     $this->loadRoutesFrom(__DIR__.'/../saml2-routes.php');
-    //     // $this->loadViewsFrom(__DIR__.'/../../resources/views', 'custom-auth');
-    // }
     /**
      * Bootstrap the application events.
      *
@@ -30,9 +22,9 @@ class OdinapiSaml2ServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // if(config('saml2_settings.useRoutes', false) == true ){
-        // }
-        include __DIR__ . '/../saml2-routes.php';
+        if(config('saml2_settings.useRoutes', false) == true ){
+            include __DIR__ . '/../../routes.php';
+        }
 
         $this->publishes([
             __DIR__.'/../../config/saml2_settings.php' => config_path('saml2_settings.php'),
@@ -51,11 +43,11 @@ class OdinapiSaml2ServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->app->singleton(Saml2Auth::class, function ($app) {
-        //     $idpName = $app->request->route('idpName');
-        //     $auth = Saml2Auth::loadOneLoginAuthFromIpdConfig($idpName);
-        //     return new Saml2Auth($auth);
-        // });
+        $this->app->singleton(Saml2Auth::class, function ($app) {
+            $idpName = $app->request->route('idpName');
+            $auth = Saml2Auth::loadOneLoginAuthFromIpdConfig($idpName);
+            return new Saml2Auth($auth);
+        });
     }
 
     /**
