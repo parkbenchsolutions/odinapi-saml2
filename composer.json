@@ -1,6 +1,6 @@
 {
     "name": "parkbenchsolutions/odinapi-saml2",
-    "description": "A Laravel package for Saml2 integration as a SP (service provider), based on OneLogin toolkit.",
+    "description": "Park Bench version of aacotroneo/laravel-saml2A which is a Laravel package for Saml2 integration as a SP (service provider), based on OneLogin toolkit.",
     "keywords": [
         "laravel",
         "saml",
@@ -9,7 +9,7 @@
     ],
     "homepage": "https://github.com/parkbenchsolutions/odinapi-saml2",
     "license": "copywrite Park Bench Solutions Inc",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "authors": [
         {
             "name": "Park Bench Solutions",
