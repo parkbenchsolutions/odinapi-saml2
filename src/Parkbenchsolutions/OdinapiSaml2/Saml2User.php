@@ -25,7 +25,6 @@ class Saml2User
     function getUserId()
     {
         $auth = $this->auth;
-
         return $auth->getNameId();
 
     }
