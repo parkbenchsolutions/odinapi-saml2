@@ -8,7 +8,7 @@
     "onelogin"
   ],
   "homepage": "https://github.com/parkbenchsolutions/odinapi-saml2",
-  "license": "copywrite Park Bench Solutions Inc",
+  "license": "MIT",
   "version": "0.1.10",
   "authors": [
     {
