@@ -40,7 +40,7 @@ class Saml2Auth
             throw new \InvalidArgumentException("IDP name required.");
         }
 
-        $config = config('saml2.'.$idpName.'_idp_settings');
+        $config = config('saml2.' . $idpName . '_idp_settings');
 
         if (is_null($config)) {
             throw new \InvalidArgumentException('"' . $idpName . '" is not a valid IdP.');
@@ -52,17 +52,19 @@ class Saml2Auth
         if (empty($config['sp']['assertionConsumerService']['url'])) {
             $config['sp']['assertionConsumerService']['url'] = URL::route('saml2_acs', $idpName);
         }
-        if (!empty($config['sp']['singleLogoutService']) &&
-            empty($config['sp']['singleLogoutService']['url'])) {
+        if (
+            !empty($config['sp']['singleLogoutService']) &&
+            empty($config['sp']['singleLogoutService']['url'])
+        ) {
             $config['sp']['singleLogoutService']['url'] = URL::route('saml2_sls', $idpName);
         }
-        if (strpos($config['sp']['privateKey'], 'file://')===0) {
+        if (strpos($config['sp']['privateKey'], 'file://') === 0) {
             $config['sp']['privateKey'] = static::extractPkeyFromFile($config['sp']['privateKey']);
         }
-        if (strpos($config['sp']['x509cert'], 'file://')===0) {
+        if (strpos($config['sp']['x509cert'], 'file://') === 0) {
             $config['sp']['x509cert'] = static::extractCertFromFile($config['sp']['x509cert']);
         }
-        if (strpos($config['idp']['x509cert'], 'file://')===0) {
+        if (strpos($config['idp']['x509cert'], 'file://') === 0) {
             $config['idp']['x509cert'] = static::extractCertFromFile($config['idp']['x509cert']);
         }
 
@@ -162,7 +164,6 @@ class Saml2Auth
         }
 
         return null;
-
     }
 
     /**
@@ -185,22 +186,21 @@ class Saml2Auth
 
         if (!empty($errors)) {
             return array('error' => $errors, 'last_error_reason' => $auth->getLastErrorReason());
-         }
+        }
 
         return null;
-
-   }
+    }
 
     /**
      * Show metadata about the local sp. Use this to configure your saml2 IDP
      * @return mixed xml string representing metadata
      * @throws \InvalidArgumentException if metadata is not correctly set
      */
-    function getMetadata()
+    function getMetadata($alwaysPublishEncryptionCert = false, $validUntil = null, $cacheDuration = null)
     {
         $auth = $this->auth;
         $settings = $auth->getSettings();
-        $metadata = $settings->getSPMetadata();
+        $metadata = $settings->getSPMetadata($alwaysPublishEncryptionCert, $validUntil, $cacheDuration);
         $errors = $settings->validateMetadata($metadata);
 
         if (empty($errors)) {
@@ -220,12 +220,14 @@ class Saml2Auth
      * @see \OneLogin_Saml2_Auth::getLastErrorReason()
      * @return string
      */
-    function getLastErrorReason() {
+    function getLastErrorReason()
+    {
         return $this->auth->getLastErrorReason();
     }
 
 
-    protected static function extractPkeyFromFile($path) {
+    protected static function extractPkeyFromFile($path)
+    {
         $res = openssl_get_privatekey($path);
         if (empty($res)) {
             throw new \Exception('Could not read private key-file at path \'' . $path . '\'');
@@ -235,7 +237,8 @@ class Saml2Auth
         return static::extractOpensslString($pkey, 'PRIVATE KEY');
     }
 
-    protected static function extractCertFromFile($path) {
+    protected static function extractCertFromFile($path)
+    {
         $res = openssl_x509_read(file_get_contents($path));
         if (empty($res)) {
             throw new \Exception('Could not read X509 certificate-file at path \'' . $path . '\'');
@@ -245,7 +248,8 @@ class Saml2Auth
         return static::extractOpensslString($cert, 'CERTIFICATE');
     }
 
-    protected static function extractOpensslString($keyString, $delimiter) {
+    protected static function extractOpensslString($keyString, $delimiter)
+    {
         $keyString = str_replace(["\r", "\n"], "", $keyString);
         $regex = '/-{5}BEGIN(?:\s|\w)+' . $delimiter . '-{5}\s*(.+?)\s*-{5}END(?:\s|\w)+' . $delimiter . '-{5}/m';
         preg_match($regex, $keyString, $matches);
