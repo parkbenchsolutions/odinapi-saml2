@@ -196,7 +196,7 @@ class Saml2Auth
      * @return mixed xml string representing metadata
      * @throws \InvalidArgumentException if metadata is not correctly set
      */
-    function getMetadata()
+    function getMetadata($alwaysPublishEncryptionCert = false, $validUntil = null, $cacheDuration = null)
     {
         $auth = $this->auth;
         $settings = $auth->getSettings();
