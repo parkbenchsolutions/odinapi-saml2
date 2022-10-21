@@ -200,10 +200,7 @@ class Saml2Auth
     {
         $auth = $this->auth;
         $settings = $auth->getSettings();
-        $alwaysPublishEncryptionCert = false;
-        $validTime = isset($settings->getSPData()['metadataTimeValid']) ? time() + $settings->getSPData()['metadataTimeValid'] : null;
-        $cachedTime = isset($settings->getSPData()['metadataTimeCached']) ? $settings->getSPData()['metadataTimeCached'] : null;
-        $metadata = $settings->getSPMetadata($alwaysPublishEncryptionCert, $validTime, $cachedTime);
+        $metadata = $settings->getSPMetadata($alwaysPublishEncryptionCert, $validUntil, $cacheDuration);
         $errors = $settings->validateMetadata($metadata);
         if (empty($errors)) {
             return $metadata;
